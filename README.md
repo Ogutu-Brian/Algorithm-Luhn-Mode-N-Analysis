@@ -1,0 +1,2 @@
+## Analysis with Lunh-mod-N algorithm
+Luhn algorithm analysis aids in ensuring the IMEI and PAN numbers do not have errors. This analysis helps generate a version of luhn algorithm that incorporates characters 
