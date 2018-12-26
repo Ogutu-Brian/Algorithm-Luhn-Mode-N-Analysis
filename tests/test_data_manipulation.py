@@ -1,4 +1,4 @@
-from luhn.luhn import (split_pan, mapping_to_number, checksum)
+from luhn.luhn import (split_pan, mapping_to_number, checksum, is_sum_mod_10)
 import unittest
 
 
@@ -29,6 +29,15 @@ class TestStringManipulation(unittest.TestCase):
         """test if the checksum list is accurate"""
         expected_list = [1, 2, 4, 6, 5, 4, 7, 10, 7, 24]
         actual_list = checksum([1, 1, 4, 3, 5, 2, 7, 5, 7, 12])
-        message = "Expected {} nut returned {}".format(
+        message = "Expected {} but returned {}".format(
             expected_list, actual_list)
         self.assertEqual(expected_list, actual_list, message)
+
+    def test_mod_10(self):
+        """Tests if the sum is in mod 10
+        """
+        expected_value = True
+        actual_value = is_sum_mod_10([1, 2, 4, 6, 5, 4, 7, 10, 7, 24])
+        message = "Expected {} but returned {}".format(
+            expected_value, actual_value)
+        self.assertEqual(expected_value, actual_value, message)

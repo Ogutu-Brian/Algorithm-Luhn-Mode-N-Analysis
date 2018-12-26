@@ -23,7 +23,6 @@ def split_pan(pan: str)->List:
     >>>[a,b,c]
     """
     pan = list(pan)
-    print("The new string is {}".format(pan))
     return pan
 
 
@@ -46,14 +45,30 @@ def checksum(pan_list: List)->List:
     >>>checksum([1, 1, 4, 3, 5, 2, 7, 5, 7, 12])
     >>>[1, 2, 4, 6, 5, 4, 7, 10, 7, 24]
     """
-    last_index = len(pan_list) - 1
-    while last_index > 0:
-        pan_list[last_index] *= 2
-        last_index -= 2
+    index = len(pan_list) - 1
+    while index > 0:
+        pan_list[index] += pan_list[index]
+        index -= 2
     return pan_list
+
+
+def is_sum_mod_10(pan_list: List)->bool:
+    """Checks if the sum mode 10 is 0 or not
+    >>>sum_mod_10([1, 2, 4, 6, 5, 4, 7, 10, 7, 24])
+    >>>True
+    """
+    return sum(pan_list) % 10 == 0
 
 
 if __name__ == "__main__":
     dataset = get_required_data(
         "Uday - 1K Sample PAN for Upwork - 24-12-2018.xlsx")
-    print("The length of the dataset is {}".format(len(dataset)))
+    split_data = split_pan(dataset)
+    mapped_data = [mapping_to_number(item) for item in split_data]
+    summed_data = [checksum(item) for item in mapped_data]
+    for item in summed_data:
+        if not is_sum_mod_10(item):
+            print(item)
+            print("The sum is {}".format(sum(item)))
+            print("There was a glitch in the algorithm")
+            break
