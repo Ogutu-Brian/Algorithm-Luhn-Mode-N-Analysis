@@ -1,4 +1,5 @@
-from luhn.luhn import (split_pan, mapping_to_number, checksum, is_sum_mod_10)
+from luhn.luhn import (split_pan, mapping_to_code_points,
+                       checksum, is_sum_mod_10)
 import unittest
 
 
@@ -18,8 +19,8 @@ class TestStringManipulation(unittest.TestCase):
     def test_number_mapping(self):
         """tests if the number is correctly mapped to the correct ascii codes
         """
-        expected_list = [1, 1, 4, 3, 5, 2, 7, 5, 7, 12]
-        actual_list = mapping_to_number(
+        expected_list = [10, 10, 13, 12, 14, 2, 7, 5, 7, 21]
+        actual_list = mapping_to_code_points(
             ['A', 'A', 'D', 'C', 'E', '2', '7', '5', '7', 'L'])
         message = "Expected {} but returned {}".format(
             expected_list, actual_list)

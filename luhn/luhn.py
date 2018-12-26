@@ -26,7 +26,7 @@ def split_pan(pan: str)->List:
     return pan
 
 
-def mapping_to_number(pan_list: List)->List:
+def mapping_to_code_points(pan_list: List)->List:
     """Maps non digit characters into equivalent ascii numbers
     >>>mapping_to_number(['A', 'A', 'D', 'C', 'E', '2', '7', '5', '7', 'L'])
     >>>[1, 1, 4, 3, 5, 2, 7, 5, 7, 12]
@@ -36,7 +36,7 @@ def mapping_to_number(pan_list: List)->List:
         if character.isdigit():
             new_pan_list.append(int(character))
         else:
-            new_pan_list.append(int(ord(character.lower()) - 96))
+            new_pan_list.append(int(ord(character.lower()) - 96)+9)
     return new_pan_list
 
 
@@ -64,11 +64,14 @@ if __name__ == "__main__":
     dataset = get_required_data(
         "Uday - 1K Sample PAN for Upwork - 24-12-2018.xlsx")
     split_data = split_pan(dataset)
-    mapped_data = [mapping_to_number(item) for item in split_data]
-    summed_data = [checksum(item) for item in mapped_data]
-    for item in summed_data:
-        if not is_sum_mod_10(item):
-            print(item)
-            print("The sum is {}".format(sum(item)))
-            print("There was a glitch in the algorithm")
-            break
+    mapped_data = [mapping_to_code_points(item) for item in split_data]
+
+    for item in mapped_data:
+        print("sum is {}".format(sum(item)))
+    # summed_data = [checksum(item) for item in mapped_data]
+    # for item in summed_data:
+    #     if not is_sum_mod_10(item):
+    #         print(item)
+    #         print("The sum is {}".format(sum(item)))
+    #         print("There was a glitch in the algorithm")
+    #         break
