@@ -1,5 +1,6 @@
 ## Analysis with Lunh-mod-N algorithm  
-[![Build Status](https://travis-ci.com/Ogutu-Brian/Algorithm-Luhn-Mode-N-Analysis.svg?branch=develop)](https://travis-ci.com/Ogutu-Brian/Algorithm-Luhn-Mode-N-Analysis)  
+[![Build Status](https://travis-ci.com/Ogutu-Brian/Algorithm-Luhn-Mode-N-Analysis.svg?branch=develop)](https://travis-ci.com/Ogutu-Brian/Algorithm-Luhn-Mode-N-Analysis)
+[![codecov](https://codecov.io/gh/Ogutu-Brian/Algorithm-Luhn-Mode-N-Analysis/branch/develop/graph/badge.svg)](https://codecov.io/gh/Ogutu-Brian/Algorithm-Luhn-Mode-N-Analysis)   
 Luhn algorithm analysis aids in ensuring the IMEI and PAN numbers do not have errors. This analysis helps generate a version of luhn algorithm that incorporates characters 
 
 ## How to execute the program
