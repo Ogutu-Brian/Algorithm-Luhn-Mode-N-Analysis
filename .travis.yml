@@ -3,11 +3,10 @@ python:
   - "3.6"
 after
 install:
-  - pip install codecov
+  - pip install pytest pytest-cov
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - pytest --cov=codecov
+  - pytest --cov=./
 after_success:
-  - codecov --token="3e7139ae-061f-4d37-b2a3-0f152d36e2f8"
-#CODECOV_TOKEN="3e7139ae-061f-4d37-b2a3-0f152d36e2f8"
+  - codecov
