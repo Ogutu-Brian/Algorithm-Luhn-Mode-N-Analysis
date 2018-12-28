@@ -8,7 +8,7 @@ install:
 # command to run tests
 script:
   - pytest
-  - coverage run pytest
+  - pytest --cov=codecov
 
 after_success:
   - codecov
