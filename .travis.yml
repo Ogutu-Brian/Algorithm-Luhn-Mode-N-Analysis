@@ -9,5 +9,5 @@ install:
 script:
   - pytest --cov=codecov
 after_success:
-  - codecov
+  - codecov --token="3e7139ae-061f-4d37-b2a3-0f152d36e2f8"
 #CODECOV_TOKEN="3e7139ae-061f-4d37-b2a3-0f152d36e2f8"
